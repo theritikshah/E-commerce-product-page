@@ -1,6 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+// using es6
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./Components/App";
 
-const root = document.getElementById('root');
+const container = document.getElementById("root");
 
-ReactDOM.render(<App />, root, (log)=>console.log("render: "+log));
+const root = createRoot(container);
+
+root.render(<App />);

@@ -28,6 +28,12 @@ body {
 
 }
 
+
+
+/* NAVIGATION BAR */
+
+
+
 .slide-menu{
     display: none;
 }
@@ -63,9 +69,9 @@ body {
     .slide-menu{
         display: block;
         position: absolute;
-        padding: 25px;
+        padding:25px 0 0 25px;
         padding-left: 66px;
-        background-color: rgba(255, 255, 255, 0.826);
+        background-color: rgba(255, 255, 255, 0.926);
         
         width: 70%;
         margin: 0 0 0 -25px;
@@ -91,17 +97,24 @@ transition: all .3s ease-in-out;
         width: calc(100% + 5rem);
         margin: 0 0 0 -25px;
         height: calc(100vh - 7rem);
-        background-color: rgba(255, 255, 255, 0.664);
-        backdrop-filter: blur(5px);
-        transition: 0.7s;
+        background-color: rgba(0, 0, 0, 0.7);
+        /* backdrop-filter: blur(5px); */
+        transition: 0.3s;
     }
 
     .hide{
       transform: translateX(-100vw);
         }
 
+    .no-blur {
+        backdrop-filter: blur(0);
+        display: none;
+    }
 
 }
+
+
+
 
 nav {
     display: flex;
@@ -109,6 +122,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 3rem 0 3.7rem 0;
+    z-index: 10;
 
 
 }
@@ -172,6 +186,10 @@ nav ul {
     }
     nav{border-bottom: 1px solid var(--grayish-blue)}
 
+    .modal-menu {
+        display: none;
+    }
+
 }
 
 .avatar {
@@ -203,5 +221,106 @@ nav ul {
 
 }
 
+
+
+/* PRODUCT SLIDER */
+
+
+@media screen and (max-width: 768px) {
+    .product-slider {
+        display: flex;
+        overflow: hidden;
+        margin: 0 -25px;
+        position: relative;
+        }
+        
+        .product-slider img{
+            width: 100%;
+        transform: translateX(0%);
+        transition: .2s ease-in;
+        
+        }
+        
+        .slider-btn{
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 0 2.5rem;
+        }
+        
+        .slider-btn button img{
+            z-index: 100;
+          width: 100%;
+          height: 100%;
+          transform: none;
+          cursor: pointer;
+        
+        }
+        
+        .slider-btn button{
+            color: var(--black);
+            z-index: 2;
+            background-color: white;
+            border: none;
+            padding: 1.4rem;
+            border-radius: 100%;
+            width: 4rem;
+            height:4rem;
+            cursor: pointer;
+            
+            }
+        
+        
+        
+}
+
+@media screen and (min-width: 768px) {
+    .product-slider{
+        display: none;
+    }
+}
+
+
+/* PRODUCT GALLERY */
+
+.gallery-grid{
+    display: grid;
+    border-radius: 2px black solid;
+}
+
+
+.mainBox {
+    width: 100%;
+    /* height: 100%; */
+    grid-column: 1/5;
+    grid-row: 1/5;
+    padding: 5px;
+    
+}
+
+.box{
+    width: 100%;
+    /* height: 100%; */
+    padding: 10px;
+    
+}
+
+.box img{
+    border-radius: 2rem;
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+.mainBox img{
+    border-radius: 2rem;
+    aspect-ratio: 1/1;
+
+    width: 100%;
+    object-fit: cover;
+}
 
 

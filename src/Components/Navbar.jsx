@@ -19,11 +19,11 @@ function NavList() {
 
 
 function Navbar(props) {
-const [toggleState, setToggleState] = useState("");
+const [toggleState, setToggleState] = useState({hide:'',blur:''});
 const handleToggleClick = ()=>{
- if(toggleState === ""){
-  setToggleState('hide')
- }else{setToggleState("")}
+ if(toggleState.hide === ''){
+  setToggleState({hide:'hide', blur:'no-blur'})
+ }else{setToggleState({hide:'', blur:''})}
   console.log(toggleState)
 }
 
@@ -33,8 +33,8 @@ const handleToggleClick = ()=>{
         <header>
             <nav>
              
-              <div className={"modal-menu "+toggleState}>
-                <div className={"slide-menu "+toggleState}>
+              <div className={"modal-menu "+toggleState.blur}>
+                <div className={"slide-menu "+toggleState.hide}>
                     <NavList/>
                 </div>
               </div>

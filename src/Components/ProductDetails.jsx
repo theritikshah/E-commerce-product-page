@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductSlider from "../Components/ProductSlider";
 import CartItems from "./CartItem";
 import PrimaryButton from "./PrimaryButton";
 import ProductGallery from "./ProductGallery";
 import QuantitySelector from "./QuantitySelector";
+import LightBox from "./LightBox";
 import QuantityContext from "../context/QuantityContext";
 import CartContext from "../context/CartContext";
 import { useContext } from "react";
@@ -13,6 +14,8 @@ function ProductDetails(props) {
   const { quantity } = useContext(QuantityContext);
   const { setCart } = useContext(CartContext);
   const { setCartState } = useContext(CartToggleContext);
+
+  const [toggleLightBox, setToggleLightBox] = useState(false);
 
   function handleAddTocart() {
     setCartState(true);
@@ -28,16 +31,17 @@ function ProductDetails(props) {
     <div className="container">
       <div className="product-gallery">
         <ProductSlider />
-        <ProductGallery />
+        <LightBox toggle={{ toggleLightBox, setToggleLightBox }} />
+        <ProductGallery toggle={{ setToggleLightBox }} />
       </div>
 
       <div className="product-copy">
         <h3 className="brand-name">SNEAKER COMPANY</h3>
         <h1>Fall Limited Edition Sneakers</h1>
         <p>
-          These low profile sneakers are your perfect casaul wear companion.
-          Featuring a durable rubber outer sole, they'll withdtand everything
-          the wheather can offer.
+          These low-profile sneakers are your perfect casaul wear companion.
+          Featuring a durable rubber outer sole, they'll withstand everything
+          the weather can offer.
         </p>
         <div className="price">
           <div className="price-col">

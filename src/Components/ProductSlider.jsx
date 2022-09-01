@@ -8,7 +8,7 @@ import iconPrevious from "../images/icon-previous.svg";
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 
-function ProductSlider() {
+function ProductSlider(props) {
   const [slide, setSlide] = useState(0);
 
   const handlers = useSwipeable({
@@ -55,7 +55,7 @@ function ProductSlider() {
   }
 
   return (
-    <div {...handlers} className="product-slider">
+    <div {...handlers} className="product-slider" {...props}>
       <div className="slider-btn">
         <button className="previous-btn" onClick={handlePrevious}>
           {" "}

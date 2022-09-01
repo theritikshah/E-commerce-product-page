@@ -73,6 +73,7 @@ function Navbar(props) {
   useEffect(() => {
     const handler = (em) => {
       if (!slideMenuRef.current.contains(em.target)) {
+        document.body.style.overflowY = "";
         setToggleState({
           hide: "hide",
           blur: "no-blur",
@@ -88,8 +89,10 @@ function Navbar(props) {
 
   const handleToggleClick = () => {
     if (toggleState.hide === "") {
+      document.body.style.overflowY = "";
       setToggleState({ hide: "hide", blur: "no-blur" });
     } else {
+      document.body.style.overflowY = "hidden";
       setToggleState({ hide: "", blur: "" });
     }
     // console.log(toggleState);
@@ -131,7 +134,7 @@ function Navbar(props) {
         <div className="profile">
           <div
             ref={cartRef}
-            cartQty={cart.itemQty}
+            cartqty={cart.itemQty}
             className="cart"
             onClick={cartToggle}
             style={
